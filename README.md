@@ -1,3 +1,12 @@
+# App requirements
+App must be developed with React (no version has been requested, the latest available will be used: 18.2.0)
+
+Main features:
+
+- App must be able to perform GET and POST request;
+- App must provide a form in order to provide new user creation;
+- No UI/UX constraints;
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
