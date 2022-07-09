@@ -1,30 +1,52 @@
 import React, {useState} from 'react';
+import postUser from "../services/api/users/postUser";
 
+import {EMAIL_REGEX} from "../constants/regex/regex";
+import Button from "./Button/Button";
+import TextInput from "./Input/TextInput";
+import RadioInput from "./Input/RadioInput";
 
 
 const Form = () => {
-    const [form, setForm] = useState({
-        name:'',
-        email:'',
-        gender:'',
-        status:''
-    });
+    const [isEmailValid, setIsEmailValid] = useState(false);
+    const initialFormState = {
+        name: '',
+        email: '',
+        gender: '',
+        status: ''
+    }
+
+    const [form, setForm] = useState(initialFormState);
 
     const onChange = event => {
-        const {value,name} = event.target
+        const {value, name} = event.target
         setForm((state) => ({
             ...state,
 
-            [name]:value
+            [name]: value
         }))
+        if (name == 'email') {
+            if (EMAIL_REGEX.test(value)) {
+                setIsEmailValid(true);
+                console.log('Email valid!');
+
+            } else {
+                setIsEmailValid(false);
+                console.log('Email not valid');
+            }
+        }
 
     };
 
-    const showData = ()=>{
+    const showData = () => {
         console.log(form)
     }
 
-    const onSubmit = (e)=>{
+    const resetData = () =>{
+        setForm(initialFormState)
+    }
+
+    const onSubmit = (e) => {
         e.preventDefault()
         // postUser(form).then(res => console.log(res))
     }
@@ -33,35 +55,55 @@ const Form = () => {
         <div>
             <form onSubmit={onSubmit}>
                 <label>Name:</label>
-                <input
-                    required
+                <TextInput
+                    required={true}
                     minLength={3}
                     type="text"
-                    name="name"
-                    placeholder="username"
                     value={form.name}
+                    placeholder="Enter name"
+                    label="Name"
+                    name="name"
                     onChange={onChange}
                 />
-
-                <label>Email:</label>
-                <input
-                    required
+                <TextInput
+                    required={true}
                     type="text"
-                    name="email"
-                    placeholder="email"
                     value={form.email}
+                    placeholder="Enter email"
+                    label="email"
+                    name="email"
                     onChange={onChange}
                 />
-
-                <label>Gender:</label>
-                <input  onChange={onChange} type="radio" value="male" name="gender" checked={form.gender === 'male'}></input>Male
-                <input   onChange={onChange}type="radio" value="female" name="gender" checked={form.gender === 'female'}></input>Female
-
-                <label>Status:</label>
-                <input  onChange={onChange} type="radio" value="active" name="status" checked={form.status === 'active'}></input>Active
-                <input   onChange={onChange}type="radio" value="inactive" name="status" checked={form.status === 'inactive'}></input>Inactive
-
-                <button type="submit" onClick={showData}>Submit</button>
+                <RadioInput
+                    type="radio"
+                    value={'active'}
+                    label="active"
+                    name="status"
+                    onChange={onChange}
+                />
+                <RadioInput
+                    type="radio"
+                    value={'inactive'}
+                    label="inactive"
+                    name="status"
+                    onChange={onChange}
+                />
+                <RadioInput
+                    type="radio"
+                    value={'male'}
+                    label="male"
+                    name="gender"
+                    onChange={onChange}
+                />
+                <RadioInput
+                    type="radio"
+                    value={'female'}
+                    label="female"
+                    name="gender"
+                    onChange={onChange}
+                />
+                <Button type="submit" onClick={showData} text={'Submit'}></Button>
+                <Button type="reset" onClick={resetData} text={'Clear'}></Button>
             </form>
         </div>
     );
