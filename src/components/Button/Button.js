@@ -1,20 +1,17 @@
-import React from 'react'
+import React from "react";
 import PropTypes from "prop-types";
+import { BaseButton } from "../../styles/buttons";
 
-const Button = ({text,disabled, type, onClick}) => (
-    <button
-        disabled={disabled ? disabled : false}
-        type={type}
-        onClick={onClick}
-    >{text}
-
-    </button>
-)
-Button.propTypes = {
-    type: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
-    text: PropTypes.string,
-
-
+function Button({ text, disabled, type, onClick }) {
+  return (
+    <BaseButton disabled={disabled || false} type={type} onClick={onClick}>
+      {text}
+    </BaseButton>
+  );
 }
-export default Button
+Button.propTypes = {
+  type: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
+  text: PropTypes.string,
+};
+export default Button;
