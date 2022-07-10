@@ -1,8 +1,8 @@
 const lightTheme = {
-  PRIMARY_COLOR: "#356859",
-  SECONDARY_COLOR: "#FD5523",
-  TITLE_COLOR: "#37966F",
-  BACKGROUND_COLOR: "#FFFBE6",
-  BUTTON_COLOR: "#B9E4C9",
+  PRIMARY_COLOR: "rgb(11,23,42)",
+  SECONDARY_COLOR: "#463940",
+  TEXT_COLOR: "white",
+  BACKGROUND_COLOR: "rgba(11,23,42,0.81)",
+  BUTTON_COLOR: "#BC4123",
 };
 export { lightTheme };

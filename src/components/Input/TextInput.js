@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { BaseInput } from "../../styles/input";
+import { FormLabel } from "../../styles/text";
 
 function TextInput({
   label,
@@ -14,7 +15,7 @@ function TextInput({
 }) {
   return (
     <div>
-      {label ? <label>{label}</label> : null}
+      {label ? <FormLabel>{label}</FormLabel> : null}
       <BaseInput
         required={required || false}
         minLength={minLength || null}

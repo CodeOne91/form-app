@@ -1,31 +1,27 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import { ThemeProvider } from "styled-components";
 import store from "./store/store";
 import { lightTheme } from "./styles/theme/theme";
+import Form from "./containers/Form";
+import { GlobalStyle } from "./styles/global";
+import Layout from "./components/Layout/Layout";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <ThemeProvider theme={lightTheme}>
       <Provider store={store}>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div>
+        <GlobalStyle />
+        <Layout>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/form" element={<Form />} />
+              <Route path="*" element={<Navigate to="/form" />} />
+            </Routes>
+          </BrowserRouter>
+        </Layout>
         <ToastContainer />
       </Provider>
     </ThemeProvider>

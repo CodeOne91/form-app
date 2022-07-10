@@ -8,6 +8,8 @@ import getUser from "../services/api/users/getUser";
 import TextInput from "../components/Input/TextInput";
 import RadioInput from "../components/Input/RadioInput";
 import Button from "../components/Button/Button";
+import { BaseForm, BaseFormControl } from "../styles/wrapper";
+import { FormLabel, TitleText } from "../styles/text";
 
 function Form() {
   const user = useSelector((state) => state.user?.user);
@@ -57,9 +59,10 @@ function Form() {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <label>Name:</label>
+    <BaseForm onSubmit={onSubmit}>
+      <TitleText>Title</TitleText>
+
+      <BaseFormControl>
         <TextInput
           required
           minLength={3}
@@ -70,6 +73,8 @@ function Form() {
           name="name"
           onChange={onChange}
         />
+      </BaseFormControl>
+      <BaseFormControl>
         <TextInput
           required
           type="text"
@@ -79,6 +84,9 @@ function Form() {
           name="email"
           onChange={onChange}
         />
+      </BaseFormControl>
+      <BaseFormControl>
+        <FormLabel>Status</FormLabel>
         <RadioInput
           type="radio"
           value="active"
@@ -93,6 +101,10 @@ function Form() {
           name="status"
           onChange={onChange}
         />
+      </BaseFormControl>
+      <BaseFormControl>
+        <FormLabel>Gender</FormLabel>
+
         <RadioInput
           type="radio"
           value="male"
@@ -107,16 +119,13 @@ function Form() {
           name="gender"
           onChange={onChange}
         />
-        <Button type="submit" onClick={showData} text="Submit" />
-        <Button type="reset" onClick={resetData} text="Clear" />
-        <Button
-          type="button"
-          text="Get"
-          onClick={() => getUser(100, dispatch)}
-        />
-        {user && JSON.stringify(user)}
-      </form>
-    </div>
+      </BaseFormControl>
+
+      <Button type="submit" onClick={showData} text="Submit" />
+      <Button type="reset" onClick={resetData} text="Clear" />
+      <Button type="button" text="Get" onClick={() => getUser(100, dispatch)} />
+      {user && JSON.stringify(user)}
+    </BaseForm>
   );
 }
 export default Form;

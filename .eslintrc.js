@@ -22,5 +22,11 @@ module.exports = {
     semi: ["error", "always"],
     quotes: ["error", "double"],
     "no-unused-vars": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
   },
 };
