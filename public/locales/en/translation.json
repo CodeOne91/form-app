@@ -1,0 +1,23 @@
+{
+  "form": {
+    "title": "Registration Form"
+  },
+  "user": {
+    "name": "Name",
+    "name-placeholder": "Insert name",
+    "email": "Email",
+    "email-placeholder": "Insert email",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "status": "Status",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+
+  "button": {
+    "submit": "Submit",
+    "close": "Close",
+    "clear": "Clear"
+  }
+}

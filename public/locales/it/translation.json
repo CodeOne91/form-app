@@ -1,0 +1,23 @@
+{
+  "form": {
+    "title": "Form Registrazione"
+  },
+  "user": {
+    "name": "Nome",
+    "name-placeholder": "Inserisci nome",
+    "email": "Email",
+    "email-placeholder": "Inserisci email",
+    "gender": "Sesso",
+    "male": "Uomo",
+    "female": "Donna",
+    "status": "Stato",
+    "active": "Attivo",
+    "inactive": "Inattivo"
+  },
+
+  "button": {
+    "submit": "Conferma",
+    "close": "Chiudi",
+    "clear": "Pulisci"
+  }
+}

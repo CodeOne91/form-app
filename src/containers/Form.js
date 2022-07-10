@@ -10,8 +10,11 @@ import RadioInput from "../components/Input/RadioInput";
 import Button from "../components/Button/Button";
 import { BaseForm, BaseFormControl } from "../styles/wrapper";
 import { FormLabel, TitleText } from "../styles/text";
+import { useTranslation, withTranslation } from "react-i18next";
 
 function Form() {
+  const { t, i18n } = useTranslation();
+
   const user = useSelector((state) => state.user?.user);
   const [isEmailValid, setIsEmailValid] = useState(false);
   const initialFormState = {
@@ -60,7 +63,7 @@ function Form() {
 
   return (
     <BaseForm onSubmit={onSubmit}>
-      <TitleText>Title</TitleText>
+      <TitleText> {t("form.title")}</TitleText>
 
       <BaseFormControl>
         <TextInput
@@ -68,8 +71,8 @@ function Form() {
           minLength={3}
           type="text"
           value={form.name}
-          placeholder="Enter name"
-          label="Name"
+          placeholder={t("user.name-placeholder")}
+          label={t("user.name")}
           name="name"
           onChange={onChange}
         />
@@ -79,25 +82,25 @@ function Form() {
           required
           type="text"
           value={form.email}
-          placeholder="Enter email"
-          label="email"
+          placeholder={t("user.email-placeholder")}
+          label={t("user.email")}
           name="email"
           onChange={onChange}
         />
       </BaseFormControl>
       <BaseFormControl>
-        <FormLabel>Status</FormLabel>
+        <FormLabel>{t("user.status")}</FormLabel>
         <RadioInput
           type="radio"
           value="active"
-          label="active"
+          label={t("user.active")}
           name="status"
           onChange={onChange}
         />
         <RadioInput
           type="radio"
           value="inactive"
-          label="inactive"
+          label={t("user.inactive")}
           name="status"
           onChange={onChange}
         />
@@ -108,21 +111,21 @@ function Form() {
         <RadioInput
           type="radio"
           value="male"
-          label="male"
+          label={t("user.male")}
           name="gender"
           onChange={onChange}
         />
         <RadioInput
           type="radio"
           value="female"
-          label="female"
+          label={t("user.female")}
           name="gender"
           onChange={onChange}
         />
       </BaseFormControl>
 
-      <Button type="submit" onClick={showData} text="Submit" />
-      <Button type="reset" onClick={resetData} text="Clear" />
+      <Button type="submit" onClick={showData} text={t("button.submit")} />
+      <Button type="reset" onClick={resetData} text={t("button.clear")} />
       <Button type="button" text="Get" onClick={() => getUser(100, dispatch)} />
       {user && JSON.stringify(user)}
     </BaseForm>
