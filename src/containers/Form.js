@@ -106,7 +106,7 @@ function Form() {
         />
       </BaseFormControl>
       <BaseFormControl>
-        <FormLabel>Gender</FormLabel>
+        <FormLabel>{t("user.gender")}</FormLabel>
 
         <RadioInput
           type="radio"

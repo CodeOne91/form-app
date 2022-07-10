@@ -19,5 +19,14 @@
     "submit": "Conferma",
     "close": "Chiudi",
     "clear": "Pulisci"
+  },
+  "message": {
+    "success": "Successo",
+    "creation-success": "Creazione avvenuta con successo",
+    "error": "Errore",
+    "bad-request": "Richiesta non valida",
+    "not-authorized": "Non autorizzato",
+    "validation-failed": "Messaggio non valido",
+    "generic-error": "Errore generico"
   }
 }

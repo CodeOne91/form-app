@@ -19,5 +19,14 @@
     "submit": "Submit",
     "close": "Close",
     "clear": "Clear"
+  },
+  "message": {
+    "success": "Success",
+    "creation-success": "Creation success",
+    "error": "Error",
+    "bad-request": "Request not valid",
+    "not-authorized": "Not authorized",
+    "validation-failed": "Message not valid",
+    "generic-error": "Generic error"
   }
 }
