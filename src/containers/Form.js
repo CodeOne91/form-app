@@ -9,7 +9,7 @@ import TextInput from "../components/Input/TextInput";
 import RadioInput from "../components/Input/RadioInput";
 import Button from "../components/Button/Button";
 import { BaseForm, BaseFormControl } from "../styles/wrapper";
-import { FormLabel, TitleText } from "../styles/text";
+import { FormLabel, Subtitle, TitleText } from "../styles/text";
 import { useTranslation, withTranslation } from "react-i18next";
 
 function Form() {
@@ -17,6 +17,7 @@ function Form() {
 
   const user = useSelector((state) => state.user?.user);
   const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isEmailBlur, setIsEmailBlur] = useState(false);
   const initialFormState = {
     name: "",
     email: "",
@@ -85,8 +86,12 @@ function Form() {
           placeholder={t("user.email-placeholder")}
           label={t("user.email")}
           name="email"
+          onBlur={setIsEmailBlur}
           onChange={onChange}
         />
+        {!isEmailValid && isEmailBlur && (
+          <Subtitle>{t("user.email-invalid")}</Subtitle>
+        )}
       </BaseFormControl>
       <BaseFormControl>
         <FormLabel>{t("user.status")}</FormLabel>

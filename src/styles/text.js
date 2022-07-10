@@ -16,3 +16,9 @@ export const FormLabel = styled.label`
 
   margin-bottom: calc(${v.smSpacing} / 4);
 `;
+
+export const Subtitle = styled.p`
+  font-size: 15px;
+  font-weight: 600;
+  color: ${(props) => props.theme.TEXT_COLOR};
+`;

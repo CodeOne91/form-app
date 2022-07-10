@@ -7,6 +7,7 @@
     "name-placeholder": "Insert name",
     "email": "Email",
     "email-placeholder": "Insert email",
+    "email-invalid": "Email not valid",
     "gender": "Gender",
     "male": "Male",
     "female": "Female",

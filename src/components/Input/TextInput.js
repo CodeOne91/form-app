@@ -12,11 +12,14 @@ function TextInput({
   onChange,
   required,
   minLength,
+  onBlur,
 }) {
   return (
     <div>
       {label ? <FormLabel>{label}</FormLabel> : null}
       <BaseInput
+        onBlur={() => onBlur(true)}
+        onFocus={() => onBlur(false)}
         required={required || false}
         minLength={minLength || null}
         type={type}
