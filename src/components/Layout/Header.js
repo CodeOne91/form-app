@@ -11,17 +11,19 @@ const Header = () => {
   return (
     <BaseHeader>
       <BaseHeaderContent>
-        <>
-          <img height={"80%"} src={img} alt="logo " />
-          <Logo>{t("page.home")}</Logo>
-        </>
-        <>
-          {location.pathname == "/form" ? (
+        <img height={"80%"} src={img} alt="logo " />
+
+        {location.pathname == "/form" ? (
+          <>
+            <Logo>{t("page.home")}</Logo>
             <NavbarLink to={"/get-user"}>{t("page.get")}</NavbarLink>
-          ) : (
+          </>
+        ) : (
+          <>
+            <Logo>{t("page.get")}</Logo>
             <NavbarLink to={"/"}>{t("page.home")}</NavbarLink>
-          )}
-        </>
+          </>
+        )}
       </BaseHeaderContent>
     </BaseHeader>
   );

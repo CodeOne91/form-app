@@ -31,6 +31,8 @@ export const UserViewWrapper = styled.div`
 `;
 
 export const BaseFormControl = styled.div`
+  margin: 25px;
+
     :first-of-type {
         margin-top: ${v.mdSpacing};
     }
@@ -45,7 +47,6 @@ export const BaseHeader = styled.div`
   color: ${(props) => props.theme.TEXT_COLOR};
   border-bottom: 1px solid ${(props) => props.theme.BUTTON_COLOR};
 `;
-
 export const BaseHeaderContent = styled.div`
   height: ${v.headerHeight};
   max-width: 1920px;
@@ -54,10 +55,10 @@ export const BaseHeaderContent = styled.div`
   padding: 0 ${v.mdSpacing};
   justify-content: space-between;
 `;
-
 export const Logo = styled.span`
   padding-left: 50px;
-  font-size: 24px;
+  font-size: 100%;
+
   font-weight: 600;
 `;
 
@@ -107,6 +108,15 @@ export const ButtonsContainer = styled.div`
   padding: 15px;
   justify-content: space-evenly;
   display: flex;
+  align-items: center;
+  flex-direction: row;
+`;
+
+export const SwitchContainer = styled.div`
+  padding: 15px;
+  justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   flex-direction: row;
 `;

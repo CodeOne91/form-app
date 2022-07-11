@@ -26,6 +26,7 @@ export const Subtitle = styled.p`
 export const NavbarLink = styled(Link)`
   color: white;
   text-decoration: none;
+  font-size: 80%;
   margin: 10px;
   &:hover,
   &:focus {

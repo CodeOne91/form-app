@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import postUser from "../services/api/users/postUser";
 import { EMAIL_REGEX } from "../constants/regex/regex";
 import TextInput from "../components/Input/TextInput";
 import RadioInput from "../components/Input/RadioInput";
 import Button from "../components/Button/Button";
-import { BaseForm, BaseFormControl, ButtonsContainer } from "../styles/wrapper";
+import {
+  BaseForm,
+  BaseFormControl,
+  ButtonsContainer,
+  SwitchContainer,
+} from "../styles/wrapper";
 import { FormLabel, Subtitle, TitleText } from "../styles/text";
 import { useTranslation } from "react-i18next";
 
@@ -74,7 +78,9 @@ function Form() {
           onBlur={setIsNameBlur}
           onChange={onChange}
         />
-        {isNameBlur && <Subtitle>{t("user.field-mandatory")}</Subtitle>}
+        {isNameBlur && form.name.length < 3 && (
+          <Subtitle>{t("user.field-mandatory")}</Subtitle>
+        )}
       </BaseFormControl>
       <BaseFormControl>
         <TextInput
@@ -91,41 +97,47 @@ function Form() {
           <Subtitle>{t("user.email-invalid")}</Subtitle>
         )}
       </BaseFormControl>
-      <BaseFormControl>
-        <FormLabel>{t("user.status")}</FormLabel>
-        <RadioInput
-          type="radio"
-          value="active"
-          label={t("user.active")}
-          name="status"
-          onChange={onChange}
-        />
-        <RadioInput
-          type="radio"
-          value="inactive"
-          label={t("user.inactive")}
-          name="status"
-          onChange={onChange}
-        />
-      </BaseFormControl>
-      <BaseFormControl>
-        <FormLabel>{t("user.gender")}</FormLabel>
+      <SwitchContainer>
+        <BaseFormControl>
+          <FormLabel>{t("user.gender")}</FormLabel>
+          <ButtonsContainer>
+            <RadioInput
+              type="radio"
+              value="male"
+              label={t("user.male")}
+              name="gender"
+              onChange={onChange}
+            />
+            <RadioInput
+              type="radio"
+              value="female"
+              label={t("user.female")}
+              name="gender"
+              onChange={onChange}
+            />
+          </ButtonsContainer>
+        </BaseFormControl>
+        <BaseFormControl>
+          <FormLabel>{t("user.status")}</FormLabel>
+          <ButtonsContainer>
+            <RadioInput
+              type="radio"
+              value="active"
+              label={t("user.active")}
+              name="status"
+              onChange={onChange}
+            />
+            <RadioInput
+              type="radio"
+              value="inactive"
+              label={t("user.inactive")}
+              name="status"
+              onChange={onChange}
+            />
+          </ButtonsContainer>
+        </BaseFormControl>
+      </SwitchContainer>
 
-        <RadioInput
-          type="radio"
-          value="male"
-          label={t("user.male")}
-          name="gender"
-          onChange={onChange}
-        />
-        <RadioInput
-          type="radio"
-          value="female"
-          label={t("user.female")}
-          name="gender"
-          onChange={onChange}
-        />
-      </BaseFormControl>
       <ButtonsContainer>
         <Button type="submit" onClick={showData} text={t("button.submit")} />
         <Button type="reset" onClick={resetData} text={t("button.clear")} />
