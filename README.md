@@ -13,6 +13,8 @@
 
 [Start project](#start)
 
+[Other way to start the project](#otherwaytostart)
+
 
 
 <a name="project_goal"></a>
@@ -63,4 +65,12 @@ This set is important for use POST request.
 ``` shell
 npm start
 ```
+<a name="otherwaytostart"></a>
+# Other way to start project
 
+If you want to have a plug&play environment, you can easily start the project using docker.
+
+```shell
+cd docker
+docker-compose up
+```
