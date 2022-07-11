@@ -1,30 +1,26 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import postUser from "../services/api/users/postUser";
-
 import { EMAIL_REGEX } from "../constants/regex/regex";
-
-import getUser from "../services/api/users/getUser";
 import TextInput from "../components/Input/TextInput";
 import RadioInput from "../components/Input/RadioInput";
 import Button from "../components/Button/Button";
-import { BaseForm, BaseFormControl } from "../styles/wrapper";
+import { BaseForm, BaseFormControl, ButtonsContainer } from "../styles/wrapper";
 import { FormLabel, Subtitle, TitleText } from "../styles/text";
-import { useTranslation, withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 function Form() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
-  const user = useSelector((state) => state.user?.user);
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isEmailBlur, setIsEmailBlur] = useState(false);
+  const [isNameBlur, setIsNameBlur] = useState(false);
   const initialFormState = {
     name: "",
     email: "",
     gender: "",
     status: "",
   };
-  const dispatch = useDispatch();
 
   const [form, setForm] = useState(initialFormState);
 
@@ -75,8 +71,10 @@ function Form() {
           placeholder={t("user.name-placeholder")}
           label={t("user.name")}
           name="name"
+          onBlur={setIsNameBlur}
           onChange={onChange}
         />
+        {isNameBlur && <Subtitle>{t("user.field-mandatory")}</Subtitle>}
       </BaseFormControl>
       <BaseFormControl>
         <TextInput
@@ -128,11 +126,10 @@ function Form() {
           onChange={onChange}
         />
       </BaseFormControl>
-
-      <Button type="submit" onClick={showData} text={t("button.submit")} />
-      <Button type="reset" onClick={resetData} text={t("button.clear")} />
-      <Button type="button" text="Get" onClick={() => getUser(100, dispatch)} />
-      {user && JSON.stringify(user)}
+      <ButtonsContainer>
+        <Button type="submit" onClick={showData} text={t("button.submit")} />
+        <Button type="reset" onClick={resetData} text={t("button.clear")} />
+      </ButtonsContainer>
     </BaseForm>
   );
 }

@@ -6,7 +6,11 @@ const userSlice = createSlice({
   initialState: { user: null },
   reducers: {
     setUser(state, action) {
-      state.user = User.createFrom(action.payload);
+      if (action.payload != null) {
+        state.user = User.createFrom(action.payload);
+      } else {
+        state.user = null;
+      }
     },
   },
 });

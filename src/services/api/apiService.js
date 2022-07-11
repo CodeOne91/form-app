@@ -43,6 +43,9 @@ axiosInstance.interceptors.response.use(
       case 401:
         toast.error(t("message.not-authorized"));
         throw "Not Authorized :" + err.message;
+      case 404:
+        toast.error(t("message.not-found"));
+        throw "Not found :" + err.message;
       case 422:
         toast.error(t("message.validation-failed"));
         throw " Data validation failed :" + err.message;

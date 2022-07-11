@@ -5,6 +5,7 @@
   "user": {
     "name": "Name",
     "name-placeholder": "Insert name",
+    "field-mandatory": "Mandatory field",
     "email": "Email",
     "email-placeholder": "Insert email",
     "email-invalid": "Email not valid",
@@ -19,7 +20,11 @@
   "button": {
     "submit": "Submit",
     "close": "Close",
-    "clear": "Clear"
+    "clear": "Clear",
+    "find": "Find",
+    "try": "Try"
+
+
   },
   "message": {
     "success": "Success",
@@ -28,6 +33,12 @@
     "bad-request": "Request not valid",
     "not-authorized": "Not authorized",
     "validation-failed": "Message not valid",
-    "generic-error": "Generic error"
-  }
+    "generic-error": "Generic error",
+    "not-found": "Not found"
+
+  },
+  "page": {
+  "home": "Registration",
+  "get": "Get user"
+}
 }

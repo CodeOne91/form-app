@@ -8,21 +8,24 @@ import Form from "./containers/Form";
 import { GlobalStyle } from "./styles/global";
 import Layout from "./components/Layout/Layout";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import UserPage from "./pages/UserPage";
 
 function App() {
   return (
     <ThemeProvider theme={lightTheme}>
       <Provider store={store}>
-        <GlobalStyle />
-        <Layout>
-          <BrowserRouter>
+        <BrowserRouter>
+          <GlobalStyle />
+          <Layout>
             <Routes>
-              <Route path="/form" element={<Form />} />
+              <Route path="/form" element={<HomePage />} />
+              <Route path="/get-user" element={<UserPage />} />
               <Route path="*" element={<Navigate to="/form" />} />
             </Routes>
-          </BrowserRouter>
-        </Layout>
-        <ToastContainer />
+          </Layout>
+          <ToastContainer />
+        </BrowserRouter>
       </Provider>
     </ThemeProvider>
   );

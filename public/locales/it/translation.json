@@ -5,6 +5,7 @@
   "user": {
     "name": "Nome",
     "name-placeholder": "Inserisci nome",
+    "field-mandatory": "Campo richiesto",
     "email": "Email",
     "email-placeholder": "Inserisci email",
     "email-invalid": "Email non valida",
@@ -19,7 +20,9 @@
   "button": {
     "submit": "Conferma",
     "close": "Chiudi",
-    "clear": "Pulisci"
+    "clear": "Pulisci",
+    "find": "Trova",
+    "try": "Prova"
   },
   "message": {
     "success": "Successo",
@@ -28,6 +31,11 @@
     "bad-request": "Richiesta non valida",
     "not-authorized": "Non autorizzato",
     "validation-failed": "Messaggio non valido",
-    "generic-error": "Errore generico"
+    "generic-error": "Errore generico",
+    "not-found": "Non trovato"
+  },
+  "page": {
+    "home": "Registrazione",
+    "get": "Trova utente"
   }
 }

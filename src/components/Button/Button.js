@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { BaseButton } from "../../styles/buttons";
+import { ButtonText } from "../../styles/text";
 
 function Button({ text, disabled, type, onClick }) {
   return (
     <BaseButton disabled={disabled || false} type={type} onClick={onClick}>
-      {text}
+      <ButtonText>{text}</ButtonText>
     </BaseButton>
   );
 }
