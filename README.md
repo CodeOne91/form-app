@@ -55,8 +55,8 @@ npm install
 To make the project fully workable, you have to set environment variables doing the following:
 1. create a .env file in project root folder;
 2. put your authorization token taken from https://gorest.co.in/
-``` shell
-REACT_APP_GOREST_AUTHORIZATION_TOKEN = "YOUR_TOKEN"
+``` bash
+$ echo REACT_APP_GOREST_AUTHORIZATION_TOKEN = "YOUR_TOKEN" >> .env
 ```
 This set is important for use POST request.
 
@@ -67,8 +67,10 @@ npm start
 ```
 <a name="otherwaytostart"></a>
 # Other way to start project
+Set .env file. ( [Set environment variable](#set_env))
 
 If you want to have a plug&play environment, you can easily start the project using docker.
+
 
 ```shell
 cd docker
