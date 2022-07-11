@@ -1,79 +1,66 @@
-# App requirements
-App must be developed with React (no version has been requested, the latest available will be used: 18.2.0)
+##### Table of Contents
+[Project goal](#project_goal)
 
-Main features:
+[How to start the project](#how_to)
 
-- App must be able to perform GET and POST request;
-- App must provide a form in order to provide new user creation;
-- No UI/UX constraints;
+- [Clone the repo](#clone)
 
-# Getting Started with Create React App
+- [Go to project dir](#go_to)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Install dependencies](#install)
 
-## Available Scripts
+- [Set environment variable](#set_env)
 
-In the project directory, you can run:
+[Start project](#start)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<a name="project_goal"></a>
+# Project goal
+- App must be developed in React (no version has been requested, the latest available will be used: `18.2.0`)
+- App must be able to perform `GET` and `POST` requests on given endpoints;
+- App must provide a form in order to perform new user creation.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<a name="how_to"></a>
+# How to start the project
+To start this project, you have to follow these steps:
 
-### `npm run build`
+<a name="clone"></a>
+## Clone the repo
+To clone the repo, open a shell and type:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+``` shell
+git clone https://github.com/CodeOne91/form-app.git`
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ or 
+``` shell
+git clone git@github.com:CodeOne91/form-app.git
+```
+<a name="go_to"></a>
+## Go to project dir
+``` shell
+cd form-app
+``` 
+<a name="install"></a>
+## Install dependencies
+``` shell
+npm install
+```
+<a name="set_env"></a>
+## Set environment variable: 
+To make the project fully workable, you have to set environment variables doing the following:
+1. create a .env file in project root folder;
+2. put your authorization token taken from https://gorest.co.in/
+``` shell
+REACT_APP_GOREST_AUTHORIZATION_TOKEN = "YOUR_TOKEN"
+```
+This set is important for use POST request.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<a name="start"></a>
+## Start project:
+``` shell
+npm start
+```
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
