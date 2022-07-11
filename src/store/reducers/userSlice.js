@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { User } from "../../models/User";
-
+//store retrieved user when getUser service is called
 const userSlice = createSlice({
   name: "user",
   initialState: { user: null },

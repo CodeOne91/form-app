@@ -6,7 +6,6 @@ export class User {
   static status;
 
   static createFrom = (source) => {
-    console.log(source);
     let newUser = new User();
     newUser.id = source["id"];
     newUser.name = source["name"];

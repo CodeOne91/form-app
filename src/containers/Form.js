@@ -12,10 +12,10 @@ import {
 } from "../styles/wrapper";
 import { FormLabel, Subtitle, TitleText } from "../styles/text";
 import { useTranslation } from "react-i18next";
+import CheckboxInput from "../components/Input/CheckboxInput";
 
 function Form() {
   const { t } = useTranslation();
-
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isEmailBlur, setIsEmailBlur] = useState(false);
   const [isNameBlur, setIsNameBlur] = useState(false);
@@ -28,44 +28,56 @@ function Form() {
 
   const [form, setForm] = useState(initialFormState);
 
+  //controlled form
   const onChange = (event) => {
     const { value, name } = event.target;
-    setForm((state) => ({
-      ...state,
+    //check checkbox state and set value
+    if (event.target.type == "checkbox") {
+      if (event.target.checked == true) {
+        setForm((state) => ({
+          ...state,
 
-      [name]: value,
-    }));
+          [name]: "active",
+        }));
+      } else if (event.target.checked == false) {
+        setForm((state) => ({
+          ...state,
+
+          [name]: "inactive",
+        }));
+      }
+    }
+    //default set of values
+    else {
+      setForm((state) => ({
+        ...state,
+
+        [name]: value,
+      }));
+    }
+    //check email regex
     if (name == "email") {
       if (EMAIL_REGEX.test(value)) {
         setIsEmailValid(true);
-        console.log("Email valid!");
       } else {
         setIsEmailValid(false);
-        console.log("Email not valid");
       }
     }
   };
 
-  const showData = () => {
-    console.log(form);
-  };
-
+  //clear form
   const resetData = () => {
     setForm(initialFormState);
   };
-
+  //send post request on submit
   const onSubmit = (e) => {
     e.preventDefault();
-
-    postUser(form)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    postUser(form);
   };
 
   return (
     <BaseForm onSubmit={onSubmit}>
       <TitleText> {t("form.title")}</TitleText>
-
       <BaseFormControl>
         <TextInput
           required
@@ -119,27 +131,15 @@ function Form() {
         </BaseFormControl>
         <BaseFormControl>
           <FormLabel>{t("user.status")}</FormLabel>
-          <ButtonsContainer>
-            <RadioInput
-              type="radio"
-              value="active"
-              label={t("user.active")}
-              name="status"
-              onChange={onChange}
-            />
-            <RadioInput
-              type="radio"
-              value="inactive"
-              label={t("user.inactive")}
-              name="status"
-              onChange={onChange}
-            />
-          </ButtonsContainer>
+          <CheckboxInput
+            name={"status"}
+            label={t("user.active")}
+            onChange={onChange}
+          />
         </BaseFormControl>
       </SwitchContainer>
-
       <ButtonsContainer>
-        <Button type="submit" onClick={showData} text={t("button.submit")} />
+        <Button type="submit" text={t("button.submit")} />
         <Button type="reset" onClick={resetData} text={t("button.clear")} />
       </ButtonsContainer>
     </BaseForm>

@@ -8,7 +8,7 @@ import {
 import { CardTextBody, CardTextTitle } from "../../styles/text";
 
 const Card = ({ name, status, gender, email }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <CardWrapper>
@@ -18,7 +18,6 @@ const Card = ({ name, status, gender, email }) => {
           {t("email")}: {email}
         </CardTextBody>
         <CardTextBody>
-          {" "}
           {t("gender")}: {t(gender)}
         </CardTextBody>
         <CardTextBody>

@@ -19,15 +19,16 @@ function UserViewContainer() {
 
   const dispatch = useDispatch();
 
+  //when /user/100 not exist generate a random id to test
   const generateRandomInt = () => {
     return Math.floor(Math.random() * MAX_RANDOM_NUM);
   };
+  //retrieve user by id
   const retrieveAnUser = (id) => {
     getUser(id, dispatch)
       .then()
       .catch((reason) => {
         let random = generateRandomInt();
-        console.log(random);
         setRandomNumber(random);
         setTryRandom(true);
       });
@@ -38,6 +39,7 @@ function UserViewContainer() {
       <Button
         type={"submit"}
         text={t("button.find")}
+        /*try to retriev user with id = 100*/
         onClick={() => retrieveAnUser(100)}
       ></Button>
       {user ? (
